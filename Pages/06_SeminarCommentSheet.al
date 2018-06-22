@@ -6,17 +6,23 @@ page 123456706 "Seminar Comment Sheet"
 
     SourceTable = "Seminar Comment Line";
 
+    AutoSplitKey = true;
+
     layout
     {
         area(content)
         {
             repeater(Group)
             {
-                field(Date;Date) { } 
-                field(Code;Code) { Visible=false; } 
-                field(Comment;Comment) { }
+                field(Date; Date) { }
+                field(Code; Code) { Visible = false; }
+                field(Comment; Comment) { }
             }
         }
     }
-   
+
+    trigger OnNewRecord(BelowxRec: Boolean)
+    begin
+        SetupNewLine;
+    end;
 }

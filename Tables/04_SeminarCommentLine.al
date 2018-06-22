@@ -20,7 +20,13 @@ table 123456704 "Seminar Comment Line"
             Caption = 'Document Line No.';
         }
 
-        field(30; "No."; Code[20]) { Caption = 'No.'; TableRelation = if("Table Name" = CONST (Seminar)) "Seminar"; }
+        field(30; "No."; Code[20]) 
+        { 
+            Caption='No.'; 
+
+            TableRelation=if ("Table Name"=CONST(Seminar)) "Seminar" else if ("Table Name"=const("Seminar Registration Header")) "Seminar Registration Header";
+
+        }
 
         field(40; "Line No."; Integer) { Caption = 'Line No.'; }
         field(50; Date; Date) { Caption = 'Date'; }
@@ -34,6 +40,17 @@ table 123456704 "Seminar Comment Line"
         {
             Clustered = true;
         }
-    }
 
+    }
+    procedure SetupNewLine() 
+    
+    var SeminarCommentLine: Record "Seminar Comment Line"; 
+    begin 
+        SeminarCommentLine.SetRange("Table Name","Table Name"); 
+        SeminarCommentLine.SetRange("No.","No."); 
+        SeminarCommentLine.SetRange("Document Line No.", "Document Line No."); 
+        SeminarCommentLine.SetRange("Date",WorkDate); 
+        if SeminarCommentLine.IsEmpty then 
+        Date:=WorkDate; 
+    end;
 }
