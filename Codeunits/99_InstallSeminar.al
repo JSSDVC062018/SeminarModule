@@ -90,10 +90,11 @@ codeunit 123456799 InstallSeminar
         Resource.Name:='Mr. Instructor';
         Resource.validate("Gen. Prod. Posting Group",'MISC');
         Resource."Direct Unit Cost":=100;
-        Resource.VALIDATE("CSD Quantity Per Day",8);
         Resource.Type:=Resource.Type::Person;
-        if Resource.Insert then;
+        Resource.VALIDATE("CSD Quantity Per Day",8);
         
+        if Resource.Insert then;
+
         Resource."No.":='ROOM 01';
         Resource.Name:='Room 01';
         Resource.Type:=Resource.Type::Machine;
