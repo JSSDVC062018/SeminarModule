@@ -148,7 +148,7 @@ page 123456734 "Posted Seminar Registration"
         area(Processing)
         {
          action("&Navigate") 
-         { 
+            {   
              Caption='&Navigate'; 
              Image=Navigate; 
              Promoted=true; 
@@ -162,7 +162,7 @@ page 123456734 "Posted Seminar Registration"
                  Navigate.SetDoc("Posting Date","No."); 
                  Navigate.RUN; 
             end;   
-         }
+            }
 
         }
     }
