@@ -105,7 +105,7 @@ page 123456721 "Seminar Ledger Entries"
              var Navigate : page Navigate; 
              
              begin 
-                 Navigate.SetDoc("Posting Date","No."); 
+                 Navigate.SetDoc("Posting Date","Document No."); 
                  Navigate.RUN; 
             end;   
             }
